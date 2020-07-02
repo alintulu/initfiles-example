@@ -1,0 +1,14 @@
+version: 0.6.0
+inputs:
+  options:
+    initfiles:
+      - first.yml 
+      - second.yml
+workflow:
+  type: serial
+  specification:
+    steps:
+       - environment: 'python:2.7-slim'
+         commands:
+          - echo {first}
+          - echo {second}
