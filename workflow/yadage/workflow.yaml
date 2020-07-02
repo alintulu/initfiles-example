@@ -1,0 +1,21 @@
+stages:
+  - name: helloworld
+    dependencies: [init]
+    scheduler:
+      scheduler_type: 'singlestep-stage'
+      parameters:
+        first: {step: init, output: first}
+        second: {step: init, output: second}
+        outputfile: '{workdir}/greetings.txt'
+      step:
+        process:
+          process_type: 'string-interpolated-cmd'
+          cmd: 'echo {first} {second}; sleep 1000'
+        publisher:
+          publisher_type: 'frompar-pub'
+          outputmap:
+            outputfile: outputfile
+        environment:
+          environment_type: 'docker-encapsulated'
+          image: 'python'
+          imagetag: '2.7-slim'
