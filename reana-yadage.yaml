@@ -1,9 +1,11 @@
 version: 0.6.0
 inputs:
+  directories:
+    - workflow
   options:
     initfiles:
-      - first.yml 
-      - second.yml
+      - workflow/yadage/first.yml 
+      - workflow/yadage/second.yml
 workflow:
   type: yadage
   file: workflow/yadage/workflow.yaml
