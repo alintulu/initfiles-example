@@ -1,6 +1,10 @@
 # initfiles-example
 
 ```
+$ reana-client run -w initfiles-test -f reana-yadage.yaml
+```
+
+```
 $ kubectl logs reana-run-batch-.... workflow-engine | less
 $ :/initfiles
 ```
